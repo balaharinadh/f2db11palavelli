@@ -1,8 +1,15 @@
 var watch = require('../models/watch');
 // List of all watches
-exports.watch_list = function(req, res) {
-res.send('NOT IMPLEMENTED: watch list');
-};
+exports.watch_list = async function(req, res) {
+    try{
+    thewatches = await watch.find();
+    res.send(thewatches);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
 // for a specific watch.
 exports.watch_detail = function(req, res) {
 res.send('NOT IMPLEMENTED: watch detail: ' + req.params.id);
