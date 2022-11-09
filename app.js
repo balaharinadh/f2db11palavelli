@@ -10,6 +10,8 @@ var gridRouter = require('./routes/gridbuild');
 var usersRouter = require('./routes/users');
 var selectorRouter = require('./routes/selector');
 var watch = require("./models/watch");
+var resourceRouter=require('./routes/resource')
+
 
 // We can seed the collection if needed on server start
 async function recreateDB(){
@@ -71,6 +73,7 @@ app.use('/watch', watchRouter);
 app.use('/gridbuild',gridRouter);
 app.use('/selector',selectorRouter);
 app.use('/watch',watch)
+app.use('/resource',resourceRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
