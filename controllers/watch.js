@@ -26,3 +26,15 @@ res.send('NOT IMPLEMENTED: watch delete DELETE ' + req.params.id);
 exports.watch_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: watch update PUT' + req.params.id);
 };
+// VIEWS
+// Handle a show all view
+exports.watch_view_all_Page = async function(req, res) {
+    try{
+    thewatches = await watch.find();
+    res.render('watch', { title: 'watch Search Results', results: thewatches });
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
