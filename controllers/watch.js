@@ -129,14 +129,29 @@ exports.watch_create_Page = function (req, res) {
 };
 // Handle building the view for updating a watch.
 // query provides the id
-exports.watch_update_Page = async function(req, res) {
-    console.log("update view for item "+req.query.id)
-    try{
-    let result = await watch.findById(req.query.id)
-    res.render('watchupdate', { title: 'watch Update', toShow: result });
+exports.watch_update_Page = async function (req, res) {
+    console.log("update view for item " + req.query.id)
+    try {
+        let result = await watch.findById(req.query.id)
+        res.render('watchupdate', { title: 'watch Update', toShow: result });
     }
-    catch(err){
-    res.status(500)
-    res.send(`{'error': '${err}'}`);
+    catch (err) {
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
     }
-    };
+};
+// Handle a delete one view with id from query
+exports.watch_delete_Page = async function (req, res) {
+    console.log("Delete view for id " + req.query.id)
+    try {
+        result = await watch.findById(req.query.id)
+        res.render('watchdelete', {
+            title: 'Watch Delete', toShow:
+                result
+        });
+    }
+    catch (err) {
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};

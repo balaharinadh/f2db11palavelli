@@ -10,6 +10,8 @@ router.get('/detail', watch_controlers.watch_view_one_Page);
 router.get('/create', watch_controlers.watch_create_Page);
 /* GET create update page */
 router.get('/update', watch_controlers.watch_update_Page);
+/* GET delete watch page */
+router.get('/delete', watch_controlers.watch_delete_Page);
 
 module.exports = router;
 
