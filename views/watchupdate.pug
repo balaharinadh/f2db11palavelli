@@ -1,6 +1,9 @@
 extends layout
 block content
   h1= title
+  if (toShow == null) 
+    h2 No instance to update 
+  else
   - let watchid = toShow._id
   - let watch_brand = toShow.watch_brand
   - let watch_cost = toShow.watch_cost
