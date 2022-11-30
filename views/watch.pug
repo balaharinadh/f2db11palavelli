@@ -3,12 +3,18 @@ extends layout
 block content
   h1= title
   - let watch=results
+  - let c=`dispatch(\"/watch/create\")`
+  button.btn( class="btn-primary", onclick= create) Create
   div(class="container-fluid")
   div(class="row")
    each w,index in watch
     - let destination = `dispatch(\"/watch/update?id=${w._id}\")`
+    - let d = `dispatch(\"/watch/detail?id=${w._id}\")`
+    - let d1 = `dispatch(\"/watch/delete?id=${w._id}\")`
     div(class="col-sm-2" class="m-1") #{w.watch_brand}, #{w.watch_cost}, #{w.watch_color}
      button.btn( class="btn-primary ml-1", onclick= destination) Update
+     button.btn( class="btn-primary ml-1", onclick= d) View
+     button.btn( class="btn-primary ml-1", onclick= d1) Delete
   script.
    function dispatch(path){
     window.location.href=path
