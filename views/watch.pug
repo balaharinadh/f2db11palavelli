@@ -4,7 +4,7 @@ block content
   h1= title
   - let watch=results
   - let c=`dispatch(\"/watch/create\")`
-  button.btn( class="btn-primary", onclick= create) Create
+  button.btn( class="btn-primary", onclick= c) Create
   div(class="container-fluid")
   div(class="row")
    each w,index in watch
